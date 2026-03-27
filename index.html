@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>English Writing Prep</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 2px solid #ddd;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.important {
+    background: #ffe0e0;
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    transition: 0.3s;
+}
+
+#percent {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>✍️ Writing Skills Prep</h1>
+
+    <!-- Progress -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+    <div id="percent">0% Completed</div>
+
+    <h2>🔥 Most Important</h2>
+    <ul id="main">
+        <li class="important"><input type="checkbox"> Essay</li>
+        <li class="important"><input type="checkbox"> Speech</li>
+        <li class="important"><input type="checkbox"> Email</li>
+        <li class="important"><input type="checkbox"> Newspaper Report</li>
+        <li class="important"><input type="checkbox"> Character Sketch</li>
+    </ul>
+
+    <h2>⭐ Second Priority</h2>
+    <ul id="secondary">
+        <li><input type="checkbox"> Interview</li>
+        <li><input type="checkbox"> Announcement</li>
+        <li><input type="checkbox"> Blog</li>
+    </ul>
+
+    <h2>📝 Also Important</h2>
+    <ul id="other">
+        <li><input type="checkbox"> Application & Resume</li>
+        <li><input type="checkbox"> Discourses</li>
+    </ul>
+
+</div>
+
+<script>
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateProgress);
+});
+
+function updateProgress() {
+    let total = checkboxes.length;
+    let checked = 0;
+
+    checkboxes.forEach(cb => {
+        if (cb.checked) checked++;
+    });
+
+    let percent = Math.round((checked / total) * 100);
+
+    document.getElementById('progress').style.width = percent + "%";
+    document.getElementById('percent').innerText = percent + "% Completed";
+}
+</script>
+
+</body>
+</html>
